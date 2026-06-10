@@ -1,0 +1,146 @@
+/* Import modern, clean font */
+@import url("https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap");
+@import url(/./config/custom.css);
+
+:root {
+  /* Premium Light-Mode Revision System Palette */
+  --background-color: #f4f6fa;    /* Clean, soft off-white workspace */
+  --card-bg: #ffffff;             /* Crisp white card backgrounds */
+  --text-primary: #1e293b;        /* Deep slate for high-readability text */
+  --text-secondary: #64748b;      /* Cool gray for sub-elements */
+  --accent-color: #3b82f6;        /* Professional study-dashboard blue */
+  --accent-hover: #2563eb;        /* Deep blue accent interaction */
+  --border-subtle: #e2e8f0;       /* Fine UI divider lines */
+  --shadow-sm: 0 2px 4px rgba(0,0,0,0.02);
+  --shadow-md: 0 10px 25px -5px rgba(0,0,0,0.05), 0 8px 10px -6px rgba(0,0,0,0.03);
+}
+
+* {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  transition: all 0.25s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-primary);
+  min-height: 100vh;
+  padding: 40px 20px;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
+}
+
+/* Container for layout alignment */
+.center {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Sleek Minimalist Search Bar */
+#searchInput {
+  padding: 14px 24px;
+  width: 100%;
+  max-width: 460px;
+  margin: 0 auto 40px auto;
+  border-radius: 14px;
+  border: 1px solid var(--border-subtle);
+  background: var(--card-bg);
+  color: var(--text-primary);
+  font-size: 16px;
+  font-weight: 500;
+  outline: none;
+  text-align: left;
+  box-shadow: var(--shadow-sm);
+}
+
+#searchInput:focus {
+  border-color: var(--accent-color);
+  box-shadow: 0 0 0 4px rgba(59, 130, 246, 0.12);
+  transform: translateY(-1px);
+}
+
+#searchInput::placeholder {
+  color: var(--text-secondary);
+  opacity: 0.7;
+}
+
+/* Grid Layout for Games Container */
+#gamesContainer {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: 24px;
+  width: 100%;
+  max-width: 1100px;
+  padding: 20px 0;
+}
+
+/* Premium "Bento" Style Game Cards */
+.game {
+  background: var(--card-bg);
+  border: 1px solid var(--border-subtle);
+  border-radius: 18px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  box-shadow: var(--shadow-sm);
+  cursor: pointer;
+  position: relative;
+}
+
+/* Smooth, high-end scaling effect on hover */
+.game:hover {
+  transform: translateY(-6px) scale(1.02);
+  border-color: var(--accent-color);
+  box-shadow: var(--shadow-md);
+}
+
+/* Game Images fixed to beautifully fit inside the card borders */
+.game img {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  object-fit: cover;
+  border-radius: 12px;
+  margin-bottom: 12px;
+}
+
+/* Clean, modern typography for game titles */
+.game p {
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-primary);
+  margin: 4px 0 8px 0;
+  width: 100%;
+  text-align: center;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis; /* Fades out long text neatly */
+}
+
+/* Responsive adjustments for tight mobile viewports */
+@media only screen and (max-width: 600px) {
+  #gamesContainer {
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 16px;
+  }
+  #searchInput {
+    max-width: 90%;
+    margin-bottom: 20px;
+  }
+}
+
+/* Fully Cloaked Footer (Invisible branding) */
+.footer, .link, a[href*="parcoil"] {
+  color: transparent !important;
+  opacity: 0 !important;
+  pointer-events: none;
+  height: 0;
+  margin: 0;
+  padding: 0;
+}
